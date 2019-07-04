@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120234876-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-120234876-1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="/sc/images/favicon.ico"/>
+    <link rel="apple-touch-icon" type="image/png" href="/sc/images/apple-touch-icon.png"/>
+
+    <title>期別アニメ一覧</title>
+    <link rel="stylesheet" media="all" href="/sc/css/app.css"/>
+    <script src="/sc/js/app.js"></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-5186331370000732",
+            enable_page_level_ads: true
+        });
+
+    </script>
+</head>
+
+<body class="post-layout-one-column">
+<div class="site">
+    <header class="site-header clearfix" role="banner">
+        <div class="header-main container clearfix">
+            <div class="site-branding clearfix">
+                <h1 class="site-title">
+                    <a class="link-none" href="javascript:void(0);" rel="home">期別アニメ一覧</a>
+                </h1>
+                <p class="site-description">2014年以降の期別アニメ一覧をご覧いただけます。</p>
+            </div>
+            <!-- .site-branding -->
+            <div class="header-widgets clearfix">
+            </div>
+            <!-- .header-widgets -->
+        </div>
+        <!-- .header-main -->
+        <div class="primary-navigation-wrap">
+            <nav class="primary-navigation navigation container clearfix" role="navigation">
+                <ul class="main-navigation-menu menu">
+                    <li class="page_item page-item-2">
+                        <a class="link-none" href="javascript:void(0);" th:text="|${year}年${cool}期|">2018年1期</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- #main-navigation -->
+        </div>
+    </header>
+    <!-- #masthead -->
+    <div class="site-content container clearfix">
+
+        <section class="content-archive content-area">
+            <main class="site-main" role="main">
+                <div class="post-wrapper clearfix">
+                    <div class="post-column clearfix">
+                        <article class="post type-post article-tile" th:each="anime : ${animes}">
+                            <div class="grid-left">
+                                <a class="wp-post-image-link" href="#" rel="bookmark">
+                                    <img width="675" height="177"
+                                         src="" th:src="${anime.thumnailUrl}"
+                                         onerror="this.src='/sc/images/noimage.png'"
+                                         class="wp-post-image"
+                                         alt="" sizes="(max-width: 675px) 100vw, 675px"/>
+                                </a>
+                            </div>
+                            <div class="grid-right">
+                                <header class="entry-header">
+                                    <h2 class="entry-title">
+                                        <a href="#" th:href="${anime.publicUrl}" th:text="${anime.title}"
+                                           rel="bookmark">Hello
+                                            world!</a>
+                                    </h2>
+                                </header>
+                                <!-- .entry-header -->
+                                <div class="entry-content entry-excerpt clearfix">
+                                    <div class="grid-inner-left">
+                                        <ul class="grid-inner-list">
+                                            <li><a target="_blank" href="#" th:href="${anime.publicUrl}" rel="bookmark">公式ページ</a>
+                                            </li>
+                                            <li><a target="_blank" href="#"
+                                                   th:href="|https://twitter.com/${anime.twitterAccount}|">公式Twitter</a>
+                                            </li>
+                                            <li><a target="_blank" href="#"
+                                                   th:href="|https://twitter.com/hashtag/${anime.twitterHashTag}|"
+                                                   th:text="|Twitterハッシュタグ(#${anime.twitterHashTag})|"></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grid-inner-right">
+                                        <a target="_blank" href="#" class="more-link"
+                                           th:href="|https://www.amazon.co.jp/gp/search?ie=UTF8&tag=aquarius19840-22&linkCode=ur2&linkId=06fe22c523c574bd265f4c8efa1866c1&camp=247&creative=1211&index=aps&keywords=${anime.title}|">関連商品
+                                            &raquo;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- .entry-content -->
+
+                        </article>
+
+                    </div>
+
+                </div>
+            </main>
+            <!-- #main -->
+        </section>
+        <!-- #primary -->
+        <section class="sidebar widget-area clearfix" role="complementary">
+
+            <aside class="widget widget_recent_entries clearfix">
+                <div class="widget-header">
+                    <h3 class="widget-title">過去データ</h3>
+                </div>
+                <ul>
+                    <li><a href="#" onclick="pastData(2018, 2);return false;">2018年2期</a></li>
+                    <li><a href="#" onclick="pastData(2018, 1);return false;">2018年1期</a></li>
+                    <li><a href="#" onclick="pastData(2017, 4);return false;">2017年4期</a></li>
+                    <li><a href="#" onclick="pastData(2017, 3);return false;">2017年3期</a></li>
+                    <li><a href="#" onclick="pastData(2017, 2);return false;">2017年2期</a></li>
+                    <li><a href="#" onclick="pastData(2017, 1);return false;">2017年1期</a></li>
+                    <li><a href="#" onclick="pastData(2016, 4);return false;">2016年4期</a></li>
+                    <li><a href="#" onclick="pastData(2016, 3);return false;">2016年3期</a></li>
+                    <li><a href="#" onclick="pastData(2016, 2);return false;">2016年2期</a></li>
+                    <li><a href="#" onclick="pastData(2016, 1);return false;">2016年1期</a></li>
+                    <li><a href="#" onclick="pastData(2015, 4);return false;">2015年4期</a></li>
+                    <li><a href="#" onclick="pastData(2015, 3);return false;">2015年3期</a></li>
+                    <li><a href="#" onclick="pastData(2015, 2);return false;">2015年2期</a></li>
+                    <li><a href="#" onclick="pastData(2015, 1);return false;">2015年1期</a></li>
+                    <li><a href="#" onclick="pastData(2014, 4);return false;">2014年4期</a></li>
+                    <li><a href="#" onclick="pastData(2014, 3);return false;">2014年3期</a></li>
+                    <li><a href="#" onclick="pastData(2014, 2);return false;">2014年2期</a></li>
+                    <li><a href="#" onclick="pastData(2014, 1);return false;">2014年1期</a></li>
+                </ul>
+            </aside>
+            <aside>
+                <script type="text/javascript">
+                    amzn_assoc_ad_type ="responsive_search_widget"; amzn_assoc_tracking_id ="aquarius19840-22"; amzn_assoc_marketplace ="amazon"; amzn_assoc_region ="JP"; amzn_assoc_placement =""; amzn_assoc_search_type = "search_widget";amzn_assoc_width ="auto"; amzn_assoc_height ="auto"; amzn_assoc_default_search_category =""; amzn_assoc_default_search_key ="";amzn_assoc_theme ="light"; amzn_assoc_bg_color ="F5E9E9";
+                </script>
+                <script src="//z-fe.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&Marketplace=JP"></script>
+            </aside>
+            <aside>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- right-column -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-5186331370000732"
+                     data-ad-slot="5139656598"
+                     data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+
+                </script>
+            </aside>
+
+        </section>
+        <!-- #secondary -->
+    </div>
+    <!-- #content -->
+    <div class="footer-wrap">
+        <footer class="site-footer container clearfix" role="contentinfo">
+            <div class="site-info">
+                    <span class="credit-link">
+                        © 2018 meg
+                    </span>
+            </div>
+            <!-- .site-info -->
+        </footer>
+        <!-- #colophon -->
+    </div>
+    <form action="" method="POST" name="past">
+        <input type="hidden" name="year" value="">
+        <input type="hidden" name="cool" value="">
+    </form>
+</div>
+<!-- #page -->
+</body>
+</html>

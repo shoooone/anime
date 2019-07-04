@@ -1,0 +1,7 @@
+spring:
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+api:
+  anime:
+    url: http://api.moemoe.tokyo/anime/v1/master/
+    timeout: 10000
